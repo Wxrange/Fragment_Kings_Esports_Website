@@ -1,0 +1,21 @@
+{% extends "catalog/base.html" %}
+
+{% block content %}
+    <div class="anime-list-page">
+        <h2>My Review Diary</h2>
+
+        {% if ratings %}
+            {%  for rating in ratings %}
+            <p>
+                <strong> {{ rating.anime.title }}</strong> - {{ rating.rating }}/5
+                {% if rating.comment %}
+                    <br>{{ rating.comment }}
+                {% endif %}
+            </p>
+            {% endfor %}
+        {% else %}
+            <p> Find an anime to make your first review!</p>
+
+        {%  endif %}
+    </div>
+{% endblock %}
